@@ -1,0 +1,68 @@
+.ChoosePlan{
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+.ChoosePlan>:first-child{
+    margin: 0;
+
+}
+.planSection{
+    display: flex;
+    border: 0;
+    gap: .5em;
+}
+.planSection label{
+    flex-grow: 1;
+    flex-basis: 33%;
+}
+.planSection input[type='radio']{
+    position: absolute;
+    width: 0;
+    top: 0;
+    left: 0;
+}
+.planSection input[type='radio']:checked+.shortInfo{
+    background-color: #FF6F00;
+}
+.planSection input[type='radio']:checked+.shortInfo i{
+    color: white;
+}
+.shortInfo {
+    color: black;
+    border: 1px solid white;
+    font-size: .75em;
+    padding: 1em;
+    min-height: 8em;
+    border-radius: .5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.shortInfo h2 {
+    font-size: 1.25em;
+    font-weight: 500;
+}
+
+.shortInfo p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.shortInfo i {
+    color: transparent;
+    text-align: right;
+}
+
+
+
+
+
+
+.botao{
+    display: block;
+    border-radius: .25em;
+    text-align: center;
+    margin: auto;
+    padding: .5em 1em;
+}

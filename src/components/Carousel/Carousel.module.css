@@ -1,0 +1,54 @@
+.CarouselWrapper{
+    position: relative;
+}
+
+.Carousel{
+    display: flex;
+    list-style: none;
+    gap: 2em;
+    overflow-x: scroll;
+    scrollbar-color: transparent;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+.Carousel::-webkit-scrollbar{
+    display: none;
+}
+.Carousel li{
+    scroll-snap-type: start;
+    flex-basis: 8em;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8em;
+    background-color: #212121;
+    color: black;
+}
+
+.scroll{
+    position: absolute;
+    height: 100%;
+    width: 2em;
+    bottom:12px;
+}
+.Carousel + .scroll{
+    right: 0;
+}
+.CarouselWrapper button{
+    color: white;
+    border: none;
+    background-color: #0e0e0e;
+    height: 80%;
+    transition-duration: .25s;
+    border-radius: .5em;
+    z-index: 2;
+}
+.CarouselWrapper button:disabled{
+    color: transparent;
+    background-color: transparent;
+    transform: scale(50%);
+    border: none;
+}
+
+

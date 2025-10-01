@@ -1,0 +1,19 @@
+.Login h1{
+    padding-bottom: 1em;
+}
+.Login form{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.Login input[type='submit']{
+    padding: .5em;
+    border-radius: .25em;
+}
+.Login p{
+    padding: 1em 0;
+}
+.Login a{
+    font-weight: bold;
+    text-decoration: none;
+}

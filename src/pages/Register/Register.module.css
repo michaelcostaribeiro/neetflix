@@ -1,0 +1,20 @@
+.Register{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.Register>:first-child{
+    margin: 0;
+}
+.Register h2{
+    margin: 0;
+}
+.Register form{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.Register input[type='submit']{
+    padding: .5em 0;
+    border-radius: .25em;
+}

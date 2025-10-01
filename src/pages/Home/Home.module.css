@@ -1,0 +1,114 @@
+.Home{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 7.5em;
+    align-items: center;
+}
+.homeBody{
+    width: 100%;
+    background-color: black;
+    position: relative;
+}
+.homeBodyCircle{
+    background-color: black;
+    width: 100%;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    border-top: solid 4px red;
+    height: 3em;
+    z-index: 0;
+    position: absolute;
+    top: -2em;
+}
+/* getStarted */
+.getStarted{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+
+}
+.getStartedForm{
+    width: 100%;
+}
+.getStartedForm div{
+    margin-bottom: 1em;
+}
+.getStartedForm input[type='submit']{
+    padding: .5em .75em;
+    border-radius: .25em;
+    cursor: pointer;
+}
+
+/* treding */
+.trendingSection{
+    text-align: left;
+}
+.trending h2{
+    font-size: 1.1em;
+    padding-bottom: 2em;
+}
+
+/* Services section */
+.servicesSection{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    font-size: .9em;
+}
+.servicesSection div{
+    background-color: #212121;
+    padding: 1em;
+    text-align: left;
+    border-radius: .5em;
+}
+.servicesSection div h3{
+    margin-bottom: .5em;
+}
+.servicesSection div p{
+    line-height: 1.3em;
+    color: rgba(255, 255, 255, 0.603);
+}
+.servicesSection img{
+    display: block;
+    margin-left: auto;
+}
+
+/* FAQ section */
+.faqSection{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.faqSection button{
+    cursor: pointer;
+    background-color: #212121;
+    border: none;
+    color: white;
+    text-align: left;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    font-size: 1.1em;
+    padding: 1em;
+}
+.faqSection span {
+    color: white;
+    text-align: end;
+    font-size: 2em;
+    font-weight: 200;
+}
+
+/* joinAgain section */
+
+.joinAgain p {
+    text-align: left;
+    font-size: .9em;
+    margin-bottom: 1em;
+}
+.joinAgain input{
+    display: block;
+    margin-right: auto;
+}

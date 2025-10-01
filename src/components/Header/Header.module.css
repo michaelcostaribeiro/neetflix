@@ -1,0 +1,29 @@
+.Header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    min-width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75),transparent);
+}
+.logo{
+    max-width: 5em;
+}
+.logo img{
+    max-width: 100%;
+}
+.HeaderButtons{
+    display: flex;
+    gap: 1em;
+}
+.HeaderButtons select, .HeaderButtons a{
+    padding: .3em .75em;
+    border-radius: .25em;
+}
+.HeaderButtons select{
+    background-color: #1E1E1E;
+}
+.Header button{
+    padding: .5em .75em;
+    border-radius: .25em;
+}

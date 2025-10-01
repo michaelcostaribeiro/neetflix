@@ -1,0 +1,28 @@
+.Profiles{
+    text-align: center;
+}
+.Profiles h1{
+    font-size: 1.5em;
+}
+.Profiles ul{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+}
+.Profiles li{
+    flex: 0 0 6em;
+    border: 1px solid white;
+    height: 7em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: .25em;
+    border-radius: .25em;
+    cursor: pointer;
+}
+.Profiles img{
+    width: fit-content;
+}

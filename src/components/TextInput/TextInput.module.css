@@ -1,0 +1,30 @@
+.TextInput {
+    width: 100%;
+    position: relative;
+}
+
+.TextInput label {
+    position: absolute;
+    left: .6em;
+    top: .6em;
+    transition: .25s;
+    color: #B3B3B3;
+}
+
+.TextInput input {
+    background-color: #1E1E1E;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: .25em;
+
+    color: black;
+    width: 100%;
+    font-size: 1.1em;
+    padding: .85em .5em .5em .5em;
+    color: white;
+}
+
+.TextInput input:focus+label,
+.TextInput input:not(:placeholder-shown)+label {
+    transform: translate(0.6em, -.2em);
+    font-size: .6em;
+}
