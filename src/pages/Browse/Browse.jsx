@@ -9,14 +9,14 @@ const Browse = () => {
 
 
     return (
-        <div>
-            <div className='flex1'>
-                <div className={styles.ChoosePlan + ' container current-query'}>
-                    {profile ? <p>{profile} logado</p>: <Profiles setProfile={setProfile} />}
-                    
-                </div>
+        <div className={styles.Browse+' flex1'}>
+            <div className={styles.Browse + ' container current-query'}>
+
+                {profile ? <p>{profile} logado</p> : <Profiles setProfile={setProfile} />}
+
             </div>
         </div>
+
     )
 }
 

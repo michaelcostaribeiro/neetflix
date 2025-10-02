@@ -1,0 +1,14 @@
+.CreateProfile form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 1em;
+}
+.CreateProfile h1{
+    font-size: 1.5em;
+}
+.CreateProfile input[type='submit']{
+    padding: .5em 1em;
+    border-radius: .25em;
+}

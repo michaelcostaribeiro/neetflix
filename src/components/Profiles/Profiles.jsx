@@ -1,44 +1,47 @@
+// css
 import styles from './Profiles.module.css'
+
+// hooks
 import useFetchDocument from '../../hooks/useFetchDocument'
 import { useEffect, useState } from 'react'
-import placeHolderImage from '../../assets/logoIcon.png'
+import { Link } from 'react-router-dom'
+import Loading from '../Loading/Loading'
 
-const Profiles = ({setProfile}) => {
+const Profiles = ({ setProfile }) => {
     const { getProfiles } = useFetchDocument()
-    const [data, setData] = useState(undefined)
+    const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        setLoading(true)
         const loadProfiles = async () => {
+            setLoading(true)
             const userData = await getProfiles()
-            setData(userData.profiles)
+            if (userData.profiles) {
+                setData(userData.profiles)
+            }
             setLoading(false)
         }
         loadProfiles()
     }, [getProfiles])
 
-    const setCurrentProfile = (item) => {
-        setProfile(item)
+    const setCurrentProfile = (name) => {
+        setProfile(name)
     }
 
-    
 
 
 
-    return loading ? <p>carregando</p>:(
-        <div className={styles.Profiles}>
+
+    return loading ? <Loading/> : (
+        <div className={styles.Profiles + ' flex1'}>
             <h1>Escolha o perfil de quem está assistindo:</h1>
             <ul>
-                {data.map((item) => {
-                    return <li key={item} onClick={() => setCurrentProfile(item)}><img src={placeHolderImage} alt="placeHolderImage" />{item}</li>
+                {data && data.map((item) => {
+                    return <li key={item.name} onClick={() => setCurrentProfile(item.name)}><img src={item.image} alt="profileImage" />{item.name}</li>
                 })}
-                <li ><img src={placeHolderImage} alt="placeHolderImage" />user3</li>
-                <li ><img src={placeHolderImage} alt="placeHolderImage" />user4</li>
-                <li ><img src={placeHolderImage} alt="placeHolderImage" />user5</li>
-                <li ><img src={placeHolderImage} alt="placeHolderImage" />user6</li>
-                <li ><img src={placeHolderImage} alt="placeHolderImage" />user7</li>
-                <li ><img src={placeHolderImage} alt="placeHolderImage" />user8</li>
+                <li>
+                    <Link className={styles.profileButton + ' btn'} to={'/createProfile'}>Criar perfil</Link>
+                </li>
             </ul>
 
         </div>

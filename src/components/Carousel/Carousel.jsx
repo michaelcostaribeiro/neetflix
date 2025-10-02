@@ -1,5 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+// css
 import styles from './Carousel.module.css'
+
+// hooks
+import { useEffect, useRef, useState } from 'react'
 
 
 const Carousel = () => {

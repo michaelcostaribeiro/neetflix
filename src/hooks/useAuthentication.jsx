@@ -1,7 +1,11 @@
-import { useNavigate } from "react-router-dom";
+// firebase
 import { auth, db } from "../firebase/config";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth'
 import { doc, setDoc } from "firebase/firestore";
+
+// hooks
+import { useNavigate } from "react-router-dom";
+
 
 
 export function useAuthentication() {
@@ -31,7 +35,6 @@ export function useAuthentication() {
             await signInWithEmailAndPassword(auth, email, password)
             navigate('/')
 
-            console.log(auth.currentUser)
         } catch (firebaseError) {
             console.log('erro: ',firebaseError)
         }
@@ -39,8 +42,8 @@ export function useAuthentication() {
 
 
     const logout = async () => {
-        await signOut(auth)
         navigate('/')
+        await signOut(auth)
     }
 
 

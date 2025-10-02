@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import styles from './ChoosePlan.module.css'
 import useFetchDocument from '../../hooks/useFetchDocument'
+import Loading from '../../components/Loading/Loading'
 
-const ChoosePlan = ({setPlan}) => {
+const ChoosePlan = ({setPlan, loading=false}) => {
     const [currentPlan, setCurrentPlan] = useState('free-plan')
+    
     const { updatePlan } = useFetchDocument()
 
     const handleSubmit = (e) => {
@@ -13,7 +15,7 @@ const ChoosePlan = ({setPlan}) => {
         setPlan(true)
     }
 
-    return (
+    return loading ? <Loading/>:(
         <div className='flex1'>
             <hr />
             <div className={styles.ChoosePlan + ' container current-query'}>

@@ -45,6 +45,9 @@
 }
 
 .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   font-weight: 500;
   background-color: #FF6F00;
