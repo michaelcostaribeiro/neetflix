@@ -1,0 +1,14 @@
+
+.EditVideos >:first-child{
+    margin: 0;
+}
+
+.EditVideos form{
+    display: flex;
+    flex-direction: column;
+    gap:.5em;
+}
+.EditVideos input[type='submit']{
+    padding: .5em 1em;
+    margin: auto;
+}

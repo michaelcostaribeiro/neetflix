@@ -1,5 +1,5 @@
 // firebase
-import { arrayUnion, doc, getDoc, updateDoc } from "firebase/firestore";
+import { arrayUnion, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { auth, db } from "../firebase/config";
 
 // hooks
@@ -33,7 +33,7 @@ export function useFetchDocument() {
 
             await updateDoc(userRef, {
                 'profiles': arrayUnion({
-                    name: profileName, 
+                    name: profileName,
                     image: imageURL
                 })
             })
@@ -42,21 +42,40 @@ export function useFetchDocument() {
             console.log('erro: ', firebaseError)
         }
     }
+    const addVideos = async (videoName, videoGenre, author,linkVideo, thumbURL) => {
+        try {
+            const userRef = doc(db, 'videos', videoGenre)
+            console.log(userRef.id)
 
-    const getProfiles = useCallback (async () => {
-        if (auth.currentUser){
+            await setDoc(doc(db, 'videos', videoGenre), {
+                'videos': arrayUnion({
+                    videoName,
+                    author,
+                    linkVideo,
+                    thumbURL
+                })
+            }, { merge: true })
+            navigate('/browse')
+        } catch (firebaseError) {
+            console.log('erro: ', firebaseError)
+        }
+    }
+
+    const getProfiles = useCallback(async () => {
+        if (auth.currentUser) {
             const currentUser = auth.currentUser.uid
             const userRef = doc(db, 'users', currentUser)
             const userSnap = await getDoc(userRef)
-    
+
             return userSnap.data()
         }
-    },[])
+    }, [])
 
 
     return {
         updatePlan,
         addProfile,
+        addVideos,
         getProfiles
     }
 }

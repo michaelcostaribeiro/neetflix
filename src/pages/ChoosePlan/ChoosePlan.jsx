@@ -1,21 +1,36 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './ChoosePlan.module.css'
 import useFetchDocument from '../../hooks/useFetchDocument'
 import Loading from '../../components/Loading/Loading'
+import { useAuthValue } from '../../context/authContext'
+import useAuthentication from '../../hooks/useAuthentication'
 
-const ChoosePlan = ({setPlan, loading=false}) => {
+const ChoosePlan = ({ setUserPlan }) => {
     const [currentPlan, setCurrentPlan] = useState('free-plan')
-    
+    const [hasPlan, setHasPlan] = useState(true)
+
+    const {validatePlan} = useAuthentication()
+
     const { updatePlan } = useFetchDocument()
+    const user = useAuthValue()
+    useEffect(()=>{
+
+        const checkPlan = async () => {
+            const isValid = await validatePlan();
+            setHasPlan(isValid);
+        };
+
+        checkPlan();
+    }, [user, validatePlan])
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        
-        updatePlan(currentPlan,true)
-        setPlan(true)
+
+        updatePlan(currentPlan, true)
+        setUserPlan(true)
     }
 
-    return loading ? <Loading/>:(
+    return hasPlan ? <Loading/> : (
         <div className='flex1'>
             <hr />
             <div className={styles.ChoosePlan + ' container current-query'}>
@@ -57,13 +72,13 @@ const ChoosePlan = ({setPlan, loading=false}) => {
                             </div>
                         </label>
                         <label >
-                            <input 
-                            type="radio" 
-                            name="plan" 
-                            id="premium-plan" 
-                            value="premium-plan" 
+                            <input
+                                type="radio"
+                                name="plan"
+                                id="premium-plan"
+                                value="premium-plan"
                                 checked={currentPlan === 'premium-plan'}
-                            onChange={(e) => setCurrentPlan(e.target.value)} />
+                                onChange={(e) => setCurrentPlan(e.target.value)} />
                             <div className={styles.shortInfo}>
                                 <div className={styles.shortTextInfo}>
                                     <h2>Premium</h2>
