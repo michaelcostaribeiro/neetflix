@@ -1,0 +1,13 @@
+.CarouselItem {
+    flex: 0 0 45%;
+    transition: .5s;
+    padding: 1.5%;
+}
+.CarouselItem:hover{
+    padding: 0;
+}
+.CarouselItem img{
+    border-radius: .25em;
+    width: 100% ;
+    height: auto;
+}

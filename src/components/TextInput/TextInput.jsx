@@ -11,6 +11,7 @@ const TextInput = ({id, value,setValue,labelText ='Email',type='email'}) => {
               value={value}
               placeholder=''
               autoComplete='off'
+              required
               onChange={(e) => setValue(e.target.value)} />
           <label htmlFor={id}>{labelText}</label>
       </div>

@@ -11,12 +11,14 @@ const EditVideos = () => {
     const [linkVideo, setLinkVideo] = useState('')
     const [thumbURL, setThumbURL] = useState('')
     const { addVideos } = useFetchDocument()
+    const [videoAdicionado, setVideoAdicionado] = useState(null)
 
 
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(videoName, videoGender, author, linkVideo, thumbURL)
         addVideos(videoName, videoGender, author, linkVideo, thumbURL)
+        setVideoAdicionado(thumbURL)
     }
     return (
         <div className='flex1'>
@@ -31,6 +33,11 @@ const EditVideos = () => {
                     {/* {id, value, setValue, labelText = 'Email', type = 'email'} */}
                     <input type="submit" value="Adicionar" className='btn' />
                 </form>
+                {videoAdicionado && <div className={styles.videoAdicionado}>
+                    <h2>Vídeo adicionado com sucesso!</h2>
+                    <p>Preview:</p>
+                    <img src={videoAdicionado}/>
+                </div>}
             </div>
         </div>
     )

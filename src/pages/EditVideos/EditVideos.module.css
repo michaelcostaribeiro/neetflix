@@ -12,3 +12,23 @@
     padding: .5em 1em;
     margin: auto;
 }
+.videoAdicionado{
+    display: flex;
+    flex-direction: column;
+    gap: .25em;
+
+    margin-top: 1em;
+    padding: .5em;
+    border-radius: .25em;
+    border: 1px solid green;
+    background-color: rgba(144, 238, 144, 0.507);
+}
+.videoAdicionado h2{
+    font-size: 1em;
+}
+.videoAdicionado p{
+    font-size: .7em;
+}
+.videoAdicionado img{
+    width: 100%;
+}

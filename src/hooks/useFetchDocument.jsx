@@ -1,5 +1,5 @@
 // firebase
-import { arrayUnion, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { arrayUnion, collection, doc, getDoc, getDocs, setDoc, updateDoc } from "firebase/firestore";
 import { auth, db } from "../firebase/config";
 
 // hooks
@@ -55,11 +55,26 @@ export function useFetchDocument() {
                     thumbURL
                 })
             }, { merge: true })
-            navigate('/browse')
         } catch (firebaseError) {
             console.log('erro: ', firebaseError)
         }
     }
+    const getVideos = useCallback(async () =>{
+        let videosArray = []
+        try{
+            const videosSnapshot = await getDocs(collection(db, "videos"));
+            videosSnapshot.forEach((doc) => {
+                let generoatual =  {
+                    [doc.id]: doc.data()
+                }
+                videosArray = [...videosArray, generoatual]
+            });
+        } catch(firebaseError){
+            console.log(firebaseError)
+        }
+        console.log(videosArray)
+        return [...videosArray]
+    },[])
 
     const getProfiles = useCallback(async () => {
         if (auth.currentUser) {
@@ -76,6 +91,7 @@ export function useFetchDocument() {
         updatePlan,
         addProfile,
         addVideos,
+        getVideos,
         getProfiles
     }
 }

@@ -1,0 +1,61 @@
+.banner {
+    width: 100%;
+    height: 40vh;
+    padding: 0;
+    position: absolute;
+    background-image: url('../../images/banner.png');
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.banner::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-image: linear-gradient(transparent,#1E1E1E);
+}
+
+.BrowseVideos{
+    margin-top: 30vh;
+}
+
+.carousel h2{
+    padding: 0 1em;
+}
+
+.carouselList {
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    position: relative;
+}
+.carouselList::-webkit-scrollbar {
+    display: none;
+}
+.carouselList >:first-child{
+    margin-left: .5em;
+}
+.carouselWrapper{
+    position: relative;
+}
+.rightButton,
+.leftButton{
+    position: absolute;
+    height: 100%;
+    width: 5%;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 5em;
+    border: none;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 20;
+    top: 0;
+}
+.rightButton{
+    right: 0;
+}
