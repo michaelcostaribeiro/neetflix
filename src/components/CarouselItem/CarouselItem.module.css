@@ -5,6 +5,7 @@
 }
 .CarouselItem:hover{
     padding: 0;
+    z-index: 99;
 }
 .CarouselItem img{
     border-radius: .25em;

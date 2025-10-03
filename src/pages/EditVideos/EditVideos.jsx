@@ -1,5 +1,5 @@
 // css
-import { useState } from 'react'
+import { use, useState } from 'react'
 import TextInput from '../../components/TextInput/TextInput'
 import useFetchDocument from '../../hooks/useFetchDocument'
 import styles from './EditVideos.module.css'
@@ -10,6 +10,7 @@ const EditVideos = () => {
     const [author, setAuthor] = useState('')
     const [linkVideo, setLinkVideo] = useState('')
     const [thumbURL, setThumbURL] = useState('')
+    const [error, setError] = useState('')
     const { addVideos } = useFetchDocument()
     const [videoAdicionado, setVideoAdicionado] = useState(null)
 
@@ -56,6 +57,7 @@ const EditVideos = () => {
                     <p>Preview:</p>
                     <img src={videoAdicionado}/>
                 </div>}
+                {error && <p>{error}</p>}
             </div>
         </div>
     )
