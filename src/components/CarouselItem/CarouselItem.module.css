@@ -11,3 +11,25 @@
     width: 100% ;
     height: auto;
 }
+@media screen and  (min-width: 500px) {
+    .CarouselItem {
+            flex: 0 0 30%;
+            padding: 1.2%;
+    }
+}
+@media screen and  (min-width: 800px) {
+    .CarouselItem {
+            flex: 0 0 24%;
+            padding: .5%;
+        }
+    }
+    @media screen and  (min-width: 1140px) {
+        .CarouselItem {
+            flex: 0 0 18%;
+    }
+}
+@media screen and  (min-width: 1400px) {
+    .CarouselItem {
+            flex: 0 0 15%;
+    }
+}

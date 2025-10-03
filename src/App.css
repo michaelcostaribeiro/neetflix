@@ -93,3 +93,19 @@
 .current-query {
     padding: 1.5em;
 }
+
+/* Tablets */
+@media (min-width: 768px) {
+
+}
+
+
+/* Small laptops / desktops */
+@media (min-width: 1024px) {
+
+}
+
+/* Large desktops */
+@media (min-width: 1280px) {
+    
+}

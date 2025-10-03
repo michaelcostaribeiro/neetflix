@@ -16,7 +16,17 @@ const EditVideos = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(videoName, videoGender, author, linkVideo, thumbURL)
+        if(videoGender === ''){
+            console.log('genero vazio')
+            return
+        }
+        setVideoAdicionado('')
+
+        setVideoName('')
+        setAuthor('')
+        setLinkVideo('')
+        setThumbURL('')
+            
         addVideos(videoName, videoGender, author, linkVideo, thumbURL)
         setVideoAdicionado(thumbURL)
     }
@@ -25,11 +35,19 @@ const EditVideos = () => {
             <div className={styles.EditVideos + ' container current-query'}>
                 <h1>Insira as informações do vídeo:</h1>
                 <form onSubmit={handleSubmit}>
-                    <TextInput id={videoName} setValue={setVideoName} labelText='Nome' type='text' />
-                    <TextInput id={videoGender} setValue={setVideoGender} labelText='Gênero' type='text' />
-                    <TextInput id={author} setValue={setAuthor} labelText='Autor' type='text' />
-                    <TextInput id={linkVideo} setValue={setLinkVideo} labelText='Link do video' type='text' />
-                    <TextInput id={thumbURL} setValue={setThumbURL} labelText='URL da Thumbnail' type='text' />
+                    <TextInput id={videoName} value={videoName} setValue={setVideoName} labelText='Nome' type='text' />
+                    <select name='gender' id="gender" onChange={(e) => setVideoGender(e.target.value)}className={styles.selectGender}>
+                        <option value="">Gênero</option>
+                        <option value="LoL">LoL</option>
+                        <option value="Musica">Musica</option>
+                        <option value="Viagem">Viagem</option>
+                        <option value="Vlog">Vlog</option>
+                        <option value="Review">Review</option>
+                        <option value="React">React</option>
+                    </select>
+                    <TextInput id={author} value={author} setValue={setAuthor} labelText='Autor' type='text' />
+                    <TextInput id={linkVideo} value={linkVideo} setValue={setLinkVideo} labelText='Link do video' type='text' />
+                    <TextInput id={thumbURL} value={thumbURL} setValue={setThumbURL} labelText='URL da Thumbnail' type='text' />
                     {/* {id, value, setValue, labelText = 'Email', type = 'email'} */}
                     <input type="submit" value="Adicionar" className='btn' />
                 </form>

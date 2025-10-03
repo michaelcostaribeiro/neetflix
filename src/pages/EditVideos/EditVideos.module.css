@@ -1,6 +1,13 @@
-
+.EditVideos{
+    max-width: 480px;
+    margin: auto;
+}
 .EditVideos >:first-child{
     margin: 0;
+}
+.EditVideos h1{
+    font-size: 1.2em;
+    padding: 1em 0;
 }
 
 .EditVideos form{
@@ -11,11 +18,14 @@
 .EditVideos input[type='submit']{
     padding: .5em 1em;
     margin: auto;
+    border-radius: .25em;
 }
 .videoAdicionado{
     display: flex;
     flex-direction: column;
     gap: .25em;
+    width: fit-content;
+    margin: auto;
 
     margin-top: 1em;
     padding: .5em;
@@ -31,4 +41,35 @@
 }
 .videoAdicionado img{
     width: 100%;
+    margin: auto;
+}
+
+.selectGender{
+    background-color: #1E1E1E;
+    color: white;
+    padding: .5em;
+    font-size: 1.1em;
+    border:1px solid rgba(255, 255, 255, 0.2);
+    border-radius: .25em;
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+.EditVideos{
+    
+    padding: 0;
+}
+.videoAdicionado img {
+        
+        max-width: 30vw;
+    }
+
+}
+
+
+/* Small laptops / desktops */
+@media (min-width: 1024px) {}
+
+/* Large desktops */
+@media (min-width: 1280px) {
 }
