@@ -1,16 +1,23 @@
-.Home{
+.Home {
     text-align: center;
     display: flex;
     flex-direction: column;
     gap: 7.5em;
     align-items: center;
 }
-.homeBody{
+
+.Home h2 {
+    font-weight: 500;
+    text-align: left;
+}
+
+.homeBody {
     width: 100%;
     background-color: black;
     position: relative;
 }
-.homeBodyCircle{
+
+.homeBodyCircle {
     background-color: black;
     width: 100%;
     border-top-left-radius: 100%;
@@ -21,68 +28,90 @@
     position: absolute;
     top: -2em;
 }
+
 /* getStarted */
-.getStarted{
+.getStarted {
     text-align: center;
     display: flex;
     flex-direction: column;
     gap: 1em;
     align-items: center;
+    max-width: 29.725em;
+    padding: 1em 1.5em;
 
 }
-.getStartedForm{
+
+.getStartedForm {
     width: 100%;
 }
-.getStartedForm div{
+
+.getStartedForm div {
     margin-bottom: 1em;
 }
-.getStartedForm input[type='submit']{
+
+.getStartedForm input[type='submit'] {
     padding: .5em .75em;
     border-radius: .25em;
     cursor: pointer;
+    margin: auto;
 }
 
 /* treding */
-.trendingSection{
+.trendingSection {
     text-align: left;
 }
-.trending h2{
+
+.trending h2 {
     font-size: 1.1em;
     padding-bottom: 2em;
 }
 
 /* Services section */
-.servicesSection{
+.servicesSection,
+.servicesContainer {
     display: flex;
     flex-direction: column;
+    text-align: left;
     gap: 1em;
     font-size: .9em;
 }
-.servicesSection div{
+
+.servicesContainer>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: #212121;
     padding: 1em;
     text-align: left;
     border-radius: .5em;
 }
-.servicesSection div h3{
+
+.servicesContainer div h3 {
     margin-bottom: .5em;
+    font-size: 1.5em;
 }
-.servicesSection div p{
+
+.servicesContainer div p {
+    font-size: 1.25em;
     line-height: 1.3em;
     color: rgba(255, 255, 255, 0.603);
 }
-.servicesSection img{
+
+.servicesContainer img {
     display: block;
     margin-left: auto;
 }
 
+
 /* FAQ section */
-.faqSection{
+.faqSection {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: .1em;
 }
-.faqSection button{
+
+.faqSection label {
+    margin-top: 1em;
     cursor: pointer;
     background-color: #212121;
     border: none;
@@ -94,6 +123,7 @@
     font-size: 1.1em;
     padding: 1em;
 }
+
 .faqSection span {
     color: white;
     text-align: end;
@@ -101,14 +131,131 @@
     font-weight: 200;
 }
 
+.faqSection input[type='radio'] {
+    display: none;
+}
+
+.faqSection:has(#whatIs:checked) #whatIsText,
+.faqSection:has(#howMuch:checked) #howMuchText,
+.faqSection:has(#whereWatch:checked) #whereWatchText,
+.faqSection:has(#whatWatch:checked) #whatWatchText {
+    display: block;
+}
+
+.faqSection span {
+    transition: .5s;
+}
+
+.faqSection:has(#whatIs:checked) #whatIs+label span,
+.faqSection:has(#howMuch:checked) #howMuch+label span,
+.faqSection:has(#whereWatch:checked) #whereWatch+label span,
+.faqSection:has(#whatWatch:checked) #whatWatch+label span {
+    transform: rotate(45deg);
+}
+
+.faqText {
+    text-align: left;
+    padding: 1em;
+    background-color: #212121;
+    display: none;
+}
+
 /* joinAgain section */
 
+.joinAgain{
+    max-width: 50em;
+    margin: auto;
+}
+
 .joinAgain p {
-    text-align: left;
+    text-align: center;
     font-size: .9em;
     margin-bottom: 1em;
 }
-.joinAgain input{
+
+.joinAgain input {
     display: block;
     margin-right: auto;
+}
+
+
+/* Tablets */
+@media (min-width: 768px) {
+    .getStarted {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        align-items: center;
+        max-width: 32.5em;
+        
+    }
+
+    .getStarted h1 {
+        font-size: 2.1em;
+    }
+
+    .getStartedForm {
+        display: flex;
+        align-items: center;
+        justify-self: center;
+        flex-direction: row;
+        height: 3.25em;
+        gap: .5em;
+    }
+
+    .getStartedForm div {
+        margin: 0;
+    }
+
+    .getStartedForm input {
+        height: 100%;
+    }
+
+    .faqSection label {
+        font-size: 1.5em;
+    }
+
+    .faqSection p {
+        font-size: 1.3em;
+    }
+
+    
+}
+
+
+/* Small laptops / desktops */
+@media (min-width: 1024px) {
+    .servicesContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        text-align: left;
+        gap: 1em;
+    }
+
+    .servicesContainer div {
+        flex: 1 0 45%;
+    }
+    
+    .getStarted h1{
+        font-size: 2.75em;
+    }
+    .getStarted p{
+        font-size: 1.25em;
+    }
+    .homeBody h2{
+        font-size: 1.75em;
+    }
+
+}
+
+/* Large desktops */
+@media (min-width: 1280px) {
+    .getStarted{
+        max-width: 600px;
+    }
+    .servicesContainer div {
+        flex: 1 0 22.5%;
+    }
 }

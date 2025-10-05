@@ -17,27 +17,26 @@ const Login = () => {
 
     return (
         <div className='flex1'>
-            <div className={styles.Login + ' current-query container'}>
-                <h1>Entrar</h1>
-                <form onSubmit={handleSubmit}>
-                    <TextInput
-                        id={'email'}
-                        value={email}
-                        setValue={setEmail} />
-
-                    <TextInput
-                        id={'password'}
-                        value={password}
-                        setValue={setPassword}
-                        labelText='Senha'
-                        type='password' />
-
-                    <input type="submit" value="Entrar" className='btn' />
-                </form>
-                <p>Primeira vez aqui? <Link to={'/register'}>Assine agora.</Link></p>
-
-
+            <div className={styles.LoginContainer + ' current-query container'}>
+                <div className={styles.Login}>
+                    <h1>Entrar</h1>
+                    <form onSubmit={handleSubmit}>
+                        <TextInput
+                            id={'email'}
+                            value={email}
+                            setValue={setEmail} />
+                        <TextInput
+                            id={'password'}
+                            value={password}
+                            setValue={setPassword}
+                            labelText='Senha'
+                            type='password' />
+                        <input type="submit" value="Entrar" className='btn' />
+                    </form>
+                    <p>Primeira vez aqui? <Link to={'/register'}>Assine agora.</Link></p>
+                </div>
             </div>
+            <div className='backgroundImage'></div>
         </div>
     )
 }

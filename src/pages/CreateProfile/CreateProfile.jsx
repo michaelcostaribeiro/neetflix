@@ -27,6 +27,7 @@ const CreateProfile = () => {
                 </form>
 
             </div>
+            <div className='grayBackground'></div>
         </div>
     )
 }

@@ -1,7 +1,7 @@
 .EditVideos {
     max-width: 480px;
-    margin: auto auto 25vh;
     background-color: rgba(255, 255, 255, 0.137);
+    margin: auto;
     
 }
 
@@ -79,8 +79,22 @@
 }
 
 
+/* Tablets */
+@media (min-width: 768px) {
+    .Login{
+        background-color: rgba(0, 0, 0, 0.75);
+        padding: 5em 3em;
+        border-radius: .25em;
+    }
+}
+
+
 /* Small laptops / desktops */
-@media (min-width: 1024px) {}
+@media (min-width: 1024px) {
+
+}
 
 /* Large desktops */
-@media (min-width: 1280px) {}
+@media (min-width: 1280px) {
+
+}

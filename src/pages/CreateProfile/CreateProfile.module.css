@@ -1,3 +1,7 @@
+.CreateProfile {
+    max-width: 500px;
+    margin: auto;
+}
 .CreateProfile form{
     display: flex;
     flex-direction: column;
@@ -12,3 +16,19 @@
     padding: .5em 1em;
     border-radius: .25em;
 }
+
+/* Tablets */
+@media (min-width: 768px) {
+    .CreateProfile {
+        background-color: rgba(0, 0, 0, 0.75);
+        padding: 5em 3em;
+        border-radius: .25em;
+    }
+}
+
+
+/* Small laptops / desktops */
+@media (min-width: 1024px) {}
+
+/* Large desktops */
+@media (min-width: 1280px) {}

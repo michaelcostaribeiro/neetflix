@@ -3,7 +3,8 @@
     height: 40vh;
     padding: 0;
     position: absolute;
-    background-image: url('../../images/banner.png');
+    background-image: url('../../images/banner-small.jpg');
+    background-repeat: no-repeat;
     top: 0;
     left: 0;
     z-index: -1;
@@ -68,4 +69,29 @@
 .leftButton:hover {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+    .banner {
+        background-image: url('../../images/banner-mid.jpg');
+    }
+
+}
+
+
+/* Small laptops / desktops */
+@media (min-width: 1024px) {
+    .banner {
+            background-image: url('../../images/banner-big.jpg');
+        }
+
+}
+
+/* Large desktops */
+@media (min-width: 1280px) {
+    .banner {
+            background-image: url('../../images/banner-large.jpg');
+        }
+
 }

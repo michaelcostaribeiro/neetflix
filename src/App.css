@@ -1,11 +1,16 @@
-*, body {
+*,
+body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     color: #FFFFFF;
 }
+
 #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .background {
@@ -14,11 +19,18 @@
     background-color: black;
     z-index: -3;
 }
-
+.grayBackground {
+    background-color: #1E1E1E;
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+}
 .backgroundImage {
     position: absolute;
     inset: 0;
-    background-image: url('./images/banner.png');
+    background-image: url('./images/banner-small.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
     z-index: -1;
 }
 
@@ -26,7 +38,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, .825);
     z-index: 0;
 }
 
@@ -96,16 +108,36 @@
 
 /* Tablets */
 @media (min-width: 768px) {
+    .backgroundImage {
+        background-image: url('./images/banner-mid.jpg');
+    }
 
 }
 
 
 /* Small laptops / desktops */
 @media (min-width: 1024px) {
+    .backgroundImage {
+        background-image: url('./images/banner-big.jpg');
+    }
+
+    .current-query {
+        padding: 1em 5em;
+    }
+
+
 
 }
 
 /* Large desktops */
 @media (min-width: 1280px) {
-    
+    .backgroundImage {
+        background-image: url('./images/banner-large.jpg');
+    }
+
+    .current-query {
+        max-width: 1440px;
+        margin: auto;
+    }
+
 }

@@ -19,18 +19,20 @@ const Register = () => {
 
     return (
         <div className='flex1'>
-            <div className={styles.Register + ' current-query container'}>
-                <p>Passo <b>1</b> de <b>2</b></p>
-                <h2>Crie sua conta:</h2>
-                <form onSubmit={handleSubmit}>
-                    <TextInput id={'displayName'} value={displayName} setValue={setDisplayName} labelText='Nome' type='text'/>
-                    <TextInput id={'email'} value={email} setValue={setEmail}/>
-                    <TextInput id={'password'} value={password} setValue={setPassword} labelText='Senha' type='password'/>
-                    <input type="submit" value="Registrar" className='btn' />
-
-                    {/* { id, value, setValue, labelText ='Email', type='email' } */}
-                </form>
+            <div className={styles.RegisterContainer + ' current-query container'}>
+                <div className={styles.Register}>
+                    <p>Passo <b>1</b> de <b>2</b></p>
+                    <h2>Crie sua conta:</h2>
+                    <form onSubmit={handleSubmit}>
+                        <TextInput id={'displayName'} value={displayName} setValue={setDisplayName} labelText='Nome' type='text'/>
+                        <TextInput id={'email'} value={email} setValue={setEmail}/>
+                        <TextInput id={'password'} value={password} setValue={setPassword} labelText='Senha' type='password'/>
+                        <input type="submit" value="Registrar" className='btn' />
+                        {/* { id, value, setValue, labelText ='Email', type='email' } */}
+                    </form>
+                </div>
             </div>
+            <div className='backgroundImage'></div>
         </div>
     )
 }

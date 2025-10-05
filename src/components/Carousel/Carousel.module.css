@@ -1,23 +1,25 @@
-.CarouselWrapper{
+.CarouselWrapper {
     position: relative;
 }
 
-.Carousel{
+.Carousel {
     display: flex;
     list-style: none;
-    gap: 2em;
+    gap: 1em;
+    padding: .5em;
     overflow-x: scroll;
     scrollbar-color: transparent;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
 }
-.Carousel::-webkit-scrollbar{
+
+.Carousel::-webkit-scrollbar {
     display: none;
 }
-.Carousel li{
+
+.Carousel li {
     scroll-snap-type: start;
-    flex-basis: 8em;
-    flex-shrink: 0;
+    flex: 0 0 7em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,16 +28,18 @@
     color: black;
 }
 
-.scroll{
+.scroll {
     position: absolute;
     height: 100%;
     width: 2em;
-    bottom:12px;
+    bottom: 12px;
 }
-.Carousel + .scroll{
+
+.Carousel+.scroll {
     right: 0;
 }
-.CarouselWrapper button{
+
+.CarouselWrapper button {
     color: white;
     border: none;
     background-color: #0e0e0e;
@@ -44,7 +48,8 @@
     border-radius: .5em;
     z-index: 2;
 }
-.CarouselWrapper button:disabled{
+
+.CarouselWrapper button:disabled {
     color: transparent;
     background-color: transparent;
     transform: scale(50%);
@@ -52,3 +57,25 @@
 }
 
 
+@media (min-width: 1024px) {
+    .Carousel {
+        gap: 2em;
+    }
+
+    .Carousel li {
+        flex: 0 0 8em;
+        height: 10em;
+    }
+
+}
+@media (min-width: 1280px) {
+    .Carousel {
+        gap: 2em;
+    }
+
+    .Carousel li {
+        flex: 0 0 10.5em;
+        height: 12em;
+    }
+
+}

@@ -16,7 +16,7 @@ const Browse = () => {
                 {profile ? <BrowseVideos/> : <Profiles setProfile={setProfile} />}
 
             </div>
-            <div className={styles.Background}></div>
+            <div className='grayBackground'></div>
         </div>
 
     )

@@ -36,19 +36,20 @@ const Header = ({ admin = false, userLogout }) => {
 
 
   return loading ? <Loading/> : (
-    <nav className={styles.Header}>
-      <NavLink to='/' className={styles.logo}><img src={logoImg} alt="logo" /></NavLink>
-      <div className={styles.HeaderButtons}>
-        <select name="lang" id="lang">
-          <option value="EN">EN</option>
-          <option value="PT">PT</option>
-        </select>
-        {admin && <NavLink to={'/crud'} className={'btn'}>EDIT</NavLink>}
-        {!user && <NavLink to={'/login'} className={'btn'}>Entrar</NavLink>}
-        {user && <button className='btn' onClick={handleLogout}><i className="fa-solid fa-right-from-bracket"></i></button>}
-
-      </div>
-    </nav>
+    <div className={styles.HeaderContainer}>
+      <nav className={styles.Header}>
+        <NavLink to='/' className={styles.logo}><img src={logoImg} alt="logo" /></NavLink>
+        <div className={styles.HeaderButtons}>
+          <select name="lang" id="lang">
+            <option value="EN">EN</option>
+            <option value="PT">PT</option>
+          </select>
+          {admin && <NavLink to={'/crud'} className={'btn'}>EDIT</NavLink>}
+          {!user && <NavLink to={'/login'} className={'btn'}>Entrar</NavLink>}
+          {user && <button className='btn' onClick={handleLogout}><i className="fa-solid fa-right-from-bracket"></i></button>}
+        </div>
+      </nav>
+    </div>
   )
 }
 
