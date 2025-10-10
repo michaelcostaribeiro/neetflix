@@ -49,7 +49,8 @@
     margin-bottom: 1em;
 }
 
-.getStartedForm input[type='submit'] {
+.getStartedForm a {
+    width: 35%;
     padding: .5em .75em;
     border-radius: .25em;
     cursor: pointer;
@@ -208,7 +209,7 @@
         margin: 0;
     }
 
-    .getStartedForm input {
+    .getStartedForm a {
         height: 100%;
     }
 

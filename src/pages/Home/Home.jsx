@@ -2,10 +2,12 @@ import { useState } from 'react'
 import styles from './Home.module.css'
 import Carousel from '../../components/Carousel/Carousel'
 import placeholder from '../../assets/logoIcon.png'
+import { Link } from 'react-router-dom'
 
 
 const Home = () => {
-    const [email, setEmail] = useState()
+    const [email, setEmail] = useState('')
+    const [secondEmail, setSecondEmail] = useState('')
 
 
     const handleSubmit = (e) => {
@@ -35,8 +37,10 @@ const Home = () => {
                             name='emailSubmit'
                             id='emailSubmit'
                             type="submit"
-                            value="Vamos lá!"
-                            className='btn' />
+                            value=""
+                            className='btn' 
+                            />
+                        <Link to={'./register'} state={{ initialemail: email }} className='btn' >Vamos lá!</Link>
                     </form>
                 </div>
                 <div className={styles.homeBody}>
@@ -111,17 +115,12 @@ const Home = () => {
                                     name='joinAgainEmail'
                                     id='joinAgainEmail'
                                     type="email"
-                                    value={email}
+                                    value={secondEmail}
                                     placeholder=''
-                                    onChange={(e) => setEmail(e.target.value)} />
+                                    onChange={(e) => setSecondEmail(e.target.value)} />
                                 <label htmlFor='joinAgainEmail'>Email</label>
                             </div>
-                            <input
-                                name='joinAgainSubmit'
-                                id='joinAgainSubmit'
-                                type="submit"
-                                value="Vamos lá!"
-                                className='btn' />
+                            <Link to={'./register'} state={{ initialemail: secondEmail }} className='btn' >Vamos lá!</Link>
                         </form>
                     </div>
                 </div>

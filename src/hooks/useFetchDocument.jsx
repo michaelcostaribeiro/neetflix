@@ -45,7 +45,6 @@ export function useFetchDocument() {
     const addVideos = async (videoName, videoGenre, author,linkVideo, thumbURL) => {
         try {
             const userRef = doc(db, 'videos', videoGenre)
-            console.log(userRef.id)
 
             await setDoc(doc(db, 'videos', videoGenre), {
                 'videos': arrayUnion({
@@ -72,7 +71,6 @@ export function useFetchDocument() {
         } catch(firebaseError){
             console.log(firebaseError)
         }
-        console.log(videosArray)
         return [...videosArray]
     },[])
 

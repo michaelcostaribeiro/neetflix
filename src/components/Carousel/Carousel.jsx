@@ -4,23 +4,26 @@ import styles from './Carousel.module.css'
 // hooks
 import { useEffect, useRef, useState } from 'react'
 
+// images
+import alanzoka from '../../assets/alanzoka.jpg'
+import pato from '../../assets/patopapao.jpg'
+import yoda from '../../assets/yoda.jpg'
+import link from '../../assets/link.jpg'
+import xarola from '../../assets/xarola.jpg'
+import ponto from '../../assets/ponto.jpg'
+import kripparrian from '../../assets/kripparrian.jpg'
+import atila from '../../assets/atila.jpg'
+
 
 const Carousel = () => {
   const caroulselRef = useRef(null)
-  const leftButton = useRef(null)
-  const rightButton = useRef(null)
   const [scrollValue, setScrollValue] = useState(0)
-
-  const currentEM = 8 * 16
-  const currentGap = 2 * 16
-
-  
 
   useEffect(() => {
     const carouselElement = caroulselRef.current
-    
-    const handleScroll = (e) =>{
-      console.log(e.target.scrollLeft)
+    const carouselItemWidth = carouselElement.firstChild.clientWidth
+
+    const handleScroll = (e) => {
       setScrollValue(e.target.scrollLeft)
     }
 
@@ -29,64 +32,63 @@ const Carousel = () => {
       carouselElement.removeEventListener('scroll', handleScroll)
     }
 
-  },[])
+  }, [])
 
-  useEffect(()=>{
-    const maxScroll = caroulselRef.current.scrollWidth - caroulselRef.current.clientWidth
-    const buttonDisabler = (item) =>{
+  useEffect(() => {
+    const carouselElement = caroulselRef.current
+    const carouselItemWidth = carouselElement.firstChild.clientWidth
+    const maxScroll = carouselElement.scrollWidth - carouselElement.clientWidth
+
+    const leftButton = carouselElement.previousElementSibling
+    const rightButton = carouselElement.nextElementSibling
+
+
+    const buttonDisabler = (item) => {
       item.disabled = true
     }
     const buttonEnabler = (item) => {
       item.disabled = false
     }
-    if (scrollValue < currentEM + currentGap){
-      buttonDisabler(leftButton.current)
-    } else if (scrollValue > maxScroll - (currentEM+currentGap)){
-      buttonDisabler(rightButton.current)
+
+    if (scrollValue < 20) {
+      buttonDisabler(leftButton)
+    }else if (scrollValue > maxScroll-20){
+      buttonDisabler(rightButton)
     }else{
-      buttonEnabler(leftButton.current)
-      buttonEnabler(rightButton.current)
+      buttonEnabler(leftButton)
+      buttonEnabler(rightButton)
     }
-  }, [scrollValue, currentEM,currentGap])
+  }, [scrollValue])
 
 
-  const scroll = async  (e,direction) =>{
+  const scroll = async (e, direction) => {
     e.preventDefault()
-    const carouselElement = caroulselRef.current
-    const maxScroll = carouselElement.scrollWidth - carouselElement.clientWidth
-    const regularScroll = 160
-    const largerScroll = 240
 
-    if(direction === 'left'){
-      if (scrollValue < largerScroll){
-        carouselElement.scrollBy(-largerScroll, 0)
-      }else{
-        carouselElement.scrollBy(-regularScroll, 0)
-      }
-    }else {
-      if (scrollValue >  maxScroll-largerScroll) {
-        carouselElement.scrollBy(largerScroll, 0)
-      } else {
-        carouselElement.scrollBy(regularScroll, 0)
-      }
+    if (direction === 'left') {
+      const carouselItemSize = e.target.nextElementSibling.firstElementChild.clientWidth
+      caroulselRef.current.scrollBy(-carouselItemSize, 0)
+    } else {
+      const carouselItemSize = e.target.previousElementSibling.firstElementChild.clientWidth
+      caroulselRef.current.scrollBy(carouselItemSize, 0)
+
     }
-    
+
   }
 
 
   return (
     <div className={styles.CarouselWrapper}>
-      <button ref={leftButton} id='leftButton' className={styles.scroll} onClick={(e) => scroll(e, 'left')}>◀</button>
+      <button  id='leftButton' className={styles.scroll} onClick={(e) => scroll(e, 'left')}>◀</button>
       <ul ref={caroulselRef} className={styles.Carousel}>
-            <li>Item1</li>
-            <li>Item2</li>
-            <li>Item3</li>
-            <li>Item4</li>
-            <li>Item5</li>
-            <li>Item6</li>
-            <li>Item7</li>
-        </ul>
-      <button ref={rightButton} id='rightButton' className={styles.scroll+ ' rightButton'} onClick={(e) => scroll(e, 'right')}>▶</button>
+        <li><img src={atila} alt="Atila" /></li>
+        <li><img src={ponto} alt="Ponto em comum" /></li>
+        <li><img src={alanzoka} alt="alanzoka" /></li>
+        <li><img src={pato} alt="Pato papão" /></li>
+        <li><img src={yoda} alt="Yoda" /></li>
+        <li><img src={xarola} alt="Xarola" /></li>
+        <li><img src={link} alt="Quadrinhos na Sarjeta" /></li>
+      </ul>
+      <button  id='rightButton' className={styles.scroll + ' rightButton'} onClick={(e) => scroll(e, 'right')}>▶</button>
     </div>
   )
 }

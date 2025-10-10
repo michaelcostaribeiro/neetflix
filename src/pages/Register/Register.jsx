@@ -1,15 +1,27 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import TextInput from '../../components/TextInput/TextInput'
 import styles from './Register.module.css'
 import useAuthentication from '../../hooks/useAuthentication'
+import { useLocation } from 'react-router-dom'
 
 
 const Register = () => {
+
+    const location = useLocation()
+    const initialemail = location.state?.initialemail || ''
+
+
     const [displayName, setDisplayName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     const {register} = useAuthentication()
+    useEffect(()=>{
+        if (initialemail){
+            setEmail(initialemail)
+            console.log(email)
+        }
+    }, [initialemail])
 
     const handleSubmit = (e) => {
         e.preventDefault()

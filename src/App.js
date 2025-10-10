@@ -25,6 +25,7 @@ import { AuthProvider } from './context/authContext'
 import EditVideos from './pages/EditVideos/EditVideos';
 import Loading from './components/Loading/Loading';
 import RouteHandler from './components/RouteHandler/RouteHandler';
+import Edit from './pages/Edit/Edit';
 
 
 function App() {
@@ -89,13 +90,14 @@ function App() {
           <BrowserRouter>
             {user ? <Header admin={isAdmin} userLogout={setUser} /> : <Header />}
             <Routes>
-              {/* <Route path='/' element={user ? userPlan ? <Navigate to={'/browse'} /> : <ChoosePlan setPlan={setUserPlan} /> : <Home />} /> */}
               <Route path='/' element={<RouteHandler user={user} userPlan={userPlan} setUserPlan={setUserPlan} />} />
               <Route path='/login' element={user ? <Navigate to={'/'} /> : <Login />} />
+              <Route path='/teste' element={isAdmin ? <Edit /> : <Navigate to={'/'} /> } />
               <Route path='/crud' element={isAdmin ? <EditVideos /> : <Navigate to={'/'} /> } />
               <Route path='/register' element={user ? <Navigate to={'/'} /> : <Register />} />
               <Route path='/browse' element={userPlan ? <Browse /> : <Navigate to={'/'} />} />
               <Route path='/createProfile' element={userPlan ? <CreateProfile /> : <Navigate to={'/'} /> } />
+              <Route path='*' element={<div>Página Não Encontrada ou Erro de Rota.</div>} /> 
             </Routes>
             <Footer />
           </BrowserRouter>

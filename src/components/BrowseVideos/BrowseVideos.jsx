@@ -17,7 +17,6 @@ const BrowseVideos = () => {
       const loadedVideos = await getVideos()
 
       setGenderList(loadedVideos)
-      console.log('videos: ', genderList)
       setLoading(false)
     }
     loadVideos()

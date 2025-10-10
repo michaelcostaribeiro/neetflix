@@ -36,7 +36,7 @@ const Header = ({ admin = false, userLogout }) => {
 
 
   return loading ? <Loading/> : (
-    <div className={styles.HeaderContainer}>
+    <header className={styles.HeaderContainer}>
       <nav className={styles.Header}>
         <NavLink to='/' className={styles.logo}><img src={logoImg} alt="logo" /></NavLink>
         <div className={styles.HeaderButtons}>
@@ -49,7 +49,7 @@ const Header = ({ admin = false, userLogout }) => {
           {user && <button className='btn' onClick={handleLogout}><i className="fa-solid fa-right-from-bracket"></i></button>}
         </div>
       </nav>
-    </div>
+    </header>
   )
 }
 
