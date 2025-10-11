@@ -27,6 +27,10 @@
     background-color: #212121;
     color: black;
 }
+.Carousel a{
+    width: 100%;
+    height: 100%;
+}
 .Carousel li img {
     width: 100%;
     height: 100%;

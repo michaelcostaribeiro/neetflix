@@ -1,23 +1,26 @@
 import React from 'react'
+import { useLanguageValue } from '../../context/languageContext'
 
 const PremiumPlan = ({ styles }) => {
+    const {t} = useLanguageValue()
+
     return (
         <>
             <div className={styles.planText}>
-                <span>Preço mensal</span>
-                <span>R$26,90</span>
+                <span>{t('premiumPlanPriceQuestion')}</span>
+                <span>{t('premiumPlanPriceAnswer')}</span>
             </div>
             <div className={styles.planText}>
-                <span>Qualidade de vídeo e áudio</span>
-                <span>Ótima</span>
+                <span>{t('premiumPlanQualityQuestion')}</span>
+                <span>{t('premiumPlanQualityAnswer')}</span>
             </div>
             <div className={styles.planText}>
-                <span>Frequência de anúncios:</span>
-                <span>Nenhuma</span>
+                <span>{t('premiumPlanFrequencyQuestion')}</span>
+                <span>{t('premiumPlanFrequencyAnswer')}</span>
             </div>
             <div className={styles.planText}>
-                <span>Canais com anúncios:</span>
-                <span>Nenhum</span>
+                <span>{t('premiumPlanAdQuestion')}</span>
+                <span>{t('premiumPlanAdAnswer')}</span>
             </div>
         </>
     )

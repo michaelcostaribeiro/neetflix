@@ -27,6 +27,7 @@ import Loading from './components/Loading/Loading';
 import RouteHandler from './components/RouteHandler/RouteHandler';
 import Edit from './pages/Edit/Edit';
 import EditPage from './pages/EditPage/EditPage';
+import { LanguageProvider } from './context/languageContext';
 
 
 function App() {
@@ -39,7 +40,6 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [authLoaded, setAuthLoaded] = useState(false)
 
-  const [lang,setLang] = useState('PT')
 
 
   useEffect(() => {
@@ -89,7 +89,7 @@ function App() {
     <>
       {loading ? <Loading/> : (
       <AuthProvider value={user}>
-        
+        <LanguageProvider >
           <BrowserRouter>
             {user ? <Header admin={isAdmin} userLogout={setUser} /> : <Header />}
             <Routes>
@@ -105,6 +105,8 @@ function App() {
             <Footer />
           </BrowserRouter>
           <div className='background'></div>
+
+          </LanguageProvider>
         </AuthProvider >) 
         }
     </>

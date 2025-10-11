@@ -21,7 +21,6 @@ const Carousel = () => {
 
   useEffect(() => {
     const carouselElement = caroulselRef.current
-    const carouselItemWidth = carouselElement.firstChild.clientWidth
 
     const handleScroll = (e) => {
       setScrollValue(e.target.scrollLeft)
@@ -36,7 +35,6 @@ const Carousel = () => {
 
   useEffect(() => {
     const carouselElement = caroulselRef.current
-    const carouselItemWidth = carouselElement.firstChild.clientWidth
     const maxScroll = carouselElement.scrollWidth - carouselElement.clientWidth
 
     const leftButton = carouselElement.previousElementSibling
@@ -80,13 +78,21 @@ const Carousel = () => {
     <div className={styles.CarouselWrapper}>
       <button  id='leftButton' className={styles.scroll} onClick={(e) => scroll(e, 'left')}>◀</button>
       <ul ref={caroulselRef} className={styles.Carousel}>
-        <li><img src={atila} alt="Atila" /></li>
-        <li><img src={ponto} alt="Ponto em comum" /></li>
-        <li><img src={alanzoka} alt="alanzoka" /></li>
-        <li><img src={pato} alt="Pato papão" /></li>
-        <li><img src={yoda} alt="Yoda" /></li>
-        <li><img src={xarola} alt="Xarola" /></li>
-        <li><img src={link} alt="Quadrinhos na Sarjeta" /></li>
+        <li><a href="https://www.youtube.com/@AtilaIamarino" target='_blank'><img src={atila} alt="Atila Iamarino" title='Atila Iamarino'/></a></li>
+
+        <li><a href="https://www.youtube.com/@PontoemComum" target='_blank'><img src={ponto} title='Ponto em Comum
+' alt="Ponto em Comum" /></a></li>
+
+        <li><a href="https://www.youtube.com/@alanzoka" target='_blank'><img src={alanzoka} alt="alanzoka" title='alanzoka' /></a></li>
+
+        <li><a href="https://www.youtube.com/@PatoPapao" target='_blank'><img src={pato} alt="Pato Papão" title='Pato Papão' /></a></li>
+
+        <li><a href="https://www.youtube.com/@YodaSL" target='_blank'><img src={yoda} alt="Yoda SL" title='Yoda SL'/></a></li>
+
+        <li><a href="https://www.youtube.com/@XAROLA" target='_blank'><img src={xarola} alt="XAROLA" title='XAROLA' /></a></li>
+
+        <li><a href="https://www.youtube.com/c/QuadrinhosNaSarjeta" target='_blank'><img src={link} alt="Quadrinhos na Sarjeta" title='Quadrinhos na Sarjeta' /></a></li>
+
       </ul>
       <button  id='rightButton' className={styles.scroll + ' rightButton'} onClick={(e) => scroll(e, 'right')}>▶</button>
     </div>

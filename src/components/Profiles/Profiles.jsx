@@ -6,8 +6,11 @@ import useFetchDocument from '../../hooks/useFetchDocument'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Loading from '../Loading/Loading'
+import { useLanguageValue } from '../../context/languageContext'
 
 const Profiles = ({ setProfile }) => {
+    const {t} = useLanguageValue()
+
     const { getProfiles } = useFetchDocument()
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
@@ -34,13 +37,13 @@ const Profiles = ({ setProfile }) => {
 
     return loading ? <Loading/> : (
         <div className={styles.Profiles + ' flex1'}>
-            <h1>Escolha o perfil de quem está assistindo:</h1>
+            <h1>{t('profilesH1')}</h1>
             <ul>
                 {data && data.map((item) => {
                     return <li key={item.name} onClick={() => setCurrentProfile(item.name)}><img src={item.image} alt="profileImage" />{item.name}</li>
                 })}
                 <li>
-                    <Link className={styles.profileButton + ' btn'} to={'/createProfile'}>Criar perfil</Link>
+                    <Link className={styles.profileButton + ' btn'} to={'/createProfile'}>{t('profilesLink')}</Link>
                 </li>
             </ul>
 

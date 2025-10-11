@@ -7,8 +7,11 @@ import useAuthentication from '../../hooks/useAuthentication'
 import FreePlan from '../../components/Plans/FreePlan'
 import PremiumPlan from '../../components/Plans/PremiumPlan'
 import MediumPlan from '../../components/Plans/MediumPlan'
+import { useLanguageValue } from '../../context/languageContext'
 
 const ChoosePlan = ({ setUserPlan }) => {
+    const {t} = useLanguageValue()
+
     const [currentPlan, setCurrentPlan] = useState('free-plan')
     const [hasPlan, setHasPlan] = useState(true)
 
@@ -37,8 +40,8 @@ const ChoosePlan = ({ setUserPlan }) => {
         <div className='flex1'>
             <hr />
             <div className={styles.ChoosePlan + ' container current-query'}>
-                <p>Passo <b>2</b> de <b>2</b></p>
-                <h1>Escolha o melhor plano para você: </h1>
+                <p>{t('chooseP1')}</p>
+                <h1>{t('chooseH1')}</h1>
                 <form onSubmit={handleSubmit}>
                     <fieldset name="plan" id="plan" className={styles.planSection}>
                         <input
@@ -51,8 +54,8 @@ const ChoosePlan = ({ setUserPlan }) => {
                         <label htmlFor='free-plan' className={styles.shortInfo}>
                             <div>
                                 <div className={styles.shortTextInfo}>
-                                    <h2>Padrão</h2>
-                                    <p>Contém anúncios.</p>
+                                    <h2>{t('chooseFreePlanH2')}</h2>
+                                    <p>{t('chooseFreePlanP')}</p>
                                 </div>
                                 <i className="fa-solid fa-check"></i>
                                 <div className={styles.planTextOnLabel}>
@@ -72,8 +75,8 @@ const ChoosePlan = ({ setUserPlan }) => {
                         <label className={styles.shortInfo} htmlFor='medium-plan'>
                             <div >
                                 <div className={styles.shortTextInfo}>
-                                    <h2>Membro</h2>
-                                    <p>Sem anúncios em alguns canais</p>
+                                    <h2>{t('chooseMediumPlanH2')}</h2>
+                                    <p>{t('chooseMediumPlanP')}</p>
                                 </div>
                                 <i className="fa-solid fa-check"></i>
                                 <div className={styles.planTextOnLabel}>
@@ -95,8 +98,8 @@ const ChoosePlan = ({ setUserPlan }) => {
                         <label className={styles.shortInfo} htmlFor='premium-plan'>
                             <div >
                                 <div className={styles.shortTextInfo}>
-                                    <h2>Premium</h2>
-                                    <p>Sem anúncio nenhum!</p>
+                                    <h2>{t('choosePremiumPlanH2')}</h2>
+                                    <p>{t('choosePremiumPlanP')}</p>
                                 </div>
                                 <i className="fa-solid fa-check"></i>
                                 <div className={styles.planTextOnLabel}>
@@ -109,7 +112,7 @@ const ChoosePlan = ({ setUserPlan }) => {
                     {currentPlan === 'medium-plan' && <MediumPlan styles={styles} />}
                     {currentPlan === 'premium-plan' && <PremiumPlan styles={styles}/>}
 
-                    <input type="submit" value="Escolher plano" className={styles.botao + ' btn'} />
+                    <input type="submit" value={t('choosePlanButton')} className={styles.botao + ' btn'} />
                 </form>
             </div>
         </div>

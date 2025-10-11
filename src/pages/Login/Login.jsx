@@ -3,8 +3,11 @@ import TextInput from '../../components/TextInput/TextInput'
 import styles from './Login.module.css'
 import { Link } from 'react-router-dom'
 import useAuthentication from '../../hooks/useAuthentication'
+import { useLanguageValue } from '../../context/languageContext'
 
 const Login = () => {
+    const {t} = useLanguageValue()
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -19,21 +22,22 @@ const Login = () => {
         <div className='flex1'>
             <div className={styles.LoginContainer + ' current-query container'}>
                 <div className={styles.Login}>
-                    <h1>Entrar</h1>
+                    <h1>{t('loginH1')}</h1>
                     <form onSubmit={handleSubmit}>
                         <TextInput
                             id={'email'}
                             value={email}
-                            setValue={setEmail} />
+                            setValue={setEmail}
+                            labelText={t('loginEmailLabel')} />
                         <TextInput
                             id={'password'}
                             value={password}
                             setValue={setPassword}
-                            labelText='Senha'
+                            labelText={t('loginPasswordLabel')}
                             type='password' />
-                        <input type="submit" value="Entrar" className='btn' />
+                        <input type="submit" value={t('loginSubmit')} className='btn' />
                     </form>
-                    <p>Primeira vez aqui? <Link to={'/register'}>Assine agora.</Link></p>
+                    <p> {t('loginP')} <Link to={'/register'}>{t('loginLink')}</Link></p>
                 </div>
             </div>
             <div className='backgroundImage'></div>

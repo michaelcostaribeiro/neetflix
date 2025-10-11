@@ -4,8 +4,13 @@ import styles from './Edit.module.css'
 import Loading from '../../components/Loading/Loading'
 import { useNavigate } from 'react-router-dom'
 import EditCarouselItem from '../../components/EditCarouselItem/EditCarouselItem'
+import {useLanguageValue} from '../../context/languageContext'
+
 
 const Edit = () => {
+    const {t} = useLanguageValue()
+
+
     const navigate = useNavigate()
 
     const { getVideos } = useFetchDocument()
@@ -40,8 +45,8 @@ const Edit = () => {
     }
 
     return loading ? <Loading /> : (<div>
-        <div className={styles.banner} alt="banner" />
         <div className={styles.Edit}>
+        <h1>{t('editingTitle')}</h1>
             <ul className={styles.carousel}>
                 {genderList &&
 

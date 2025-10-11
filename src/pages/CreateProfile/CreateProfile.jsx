@@ -2,8 +2,12 @@ import { useState } from 'react'
 import TextInput from '../../components/TextInput/TextInput'
 import styles from './CreateProfile.module.css'
 import useFetchDocument from '../../hooks/useFetchDocument'
+import {useLanguageValue} from '../../context/languageContext'
 
 const CreateProfile = () => {
+    const {t} = useLanguageValue()
+
+
     const [name, setName] = useState('')
     const [imageURL, setImageURL] = useState('')
     const {addProfile} = useFetchDocument()
@@ -18,12 +22,12 @@ const CreateProfile = () => {
         <div className='flex1'>
             <div className={styles.CreateProfile + ' container current-query'}>
                 <form onSubmit={handleSubmit}>
-                    <h1>Crie seu perfil</h1>
-                    <p>Qual o name de quem vai usar o perfil?</p>
-                    <TextInput id={name} value={name} setValue={setName} labelText='Nome' type='text' />
-                    <p>Escolha uma imagem de perfil?[32px,32px]</p>
-                    <TextInput id={'url'} value={imageURL} setValue={setImageURL} labelText='URL da Imagem' type='text' />
-                    <input type="submit" value="Criar" className={'btn'} />
+                    <h1>{t('createProfileH1')}</h1>
+                    <p>{t('createProfileP1')}</p>
+                    <TextInput id={name} value={name} setValue={setName} labelText={t('createProfileInput1')} type='text' />
+                    <p>{t('createProfileP2')}</p>
+                    <TextInput id={'url'} value={imageURL} setValue={setImageURL} labelText={t('createProfileInput2')} type='text' />
+                    <input type="submit" value={t('createProfileSubmit')} className={'btn'} />
                 </form>
 
             </div>

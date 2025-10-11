@@ -3,8 +3,23 @@ import useFetchDocument from '../../hooks/useFetchDocument'
 import styles from './BrowseVideos.module.css'
 import Loading from '../Loading/Loading'
 import CarouselItem from '../CarouselItem/CarouselItem'
+import { useLanguageValue } from '../../context/languageContext'
 
 const BrowseVideos = () => {
+  const {lang} = useLanguageValue()
+  
+  const translatedGenre = (lang, genre) => {
+      if(lang == 'en'){
+        switch (genre){
+          case 'Musica':
+            return 'Music'
+          case "Viagem":
+            return 'Travel'
+          default:
+        }
+      }
+      return genre
+  }
 
   const { getVideos } = useFetchDocument()
   const carouselList = useRef(null)
@@ -46,8 +61,11 @@ const BrowseVideos = () => {
           genderList.map((list) => {
             let currentGender = Object.keys(list)[0]
 
+            let genreToRender = translatedGenre(lang, currentGender)
+            
+
             return (<li className={styles.carouselGender} key={currentGender}>
-              <h2>{currentGender}</h2>
+              <h2>{genreToRender}</h2>
               <div className={styles.carouselWrapper}>
                 <button className={styles.leftButton} onClick={(e) => handleScroll(e,'left')}>{'<'}</button>
                 <div className={styles.carouselList} >
