@@ -1,57 +1,103 @@
+.banner {
+    width: 100%;
+    height: 40vh;
+    padding: 0;
+    position: absolute;
+    background-image: url('../../images/banner-small.jpg');
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.banner::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-image: linear-gradient(transparent, #1E1E1E);
+}
+
 .Edit {
-    max-width: 480px;
-    background-color: rgba(255, 255, 255, 0.137);
-    margin: auto;
+    margin-top: 30vh;
 }
 
-.Edit>:first-child {
-    margin: 0;
+.carousel h2 {
+    padding: 0 .7em;
 }
 
-.Edit h2 {
-    font-size: 1.2em;
-    text-align: center;
-    padding-bottom: 1em;
+.carouselList {
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    position: relative;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
 }
 
+.carouselList::-webkit-scrollbar {
+    display: none;
+}
 
-.Edit button,
-.Edit a {
-    padding: .5em 1em;
-    margin: auto;
-    margin-top: 1em;
-    border-radius: .25em;
+.carouselList>:first-child {
+    margin-left: .5em;
+}
+
+.carouselWrapper {
+    position: relative;
+}
+
+.rightButton,
+.leftButton {
+    position: absolute;
+    height: 100%;
+    width: 10%;
+    max-width: 1em;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 2.5em;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: .25s;
+    cursor: pointer;
+    top: 0;
+    z-index: 5;
+}
+
+.rightButton {
+    right: 0;
+}
+
+.rightButton:hover,
+.leftButton:hover {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Tablets */
 @media (min-width: 768px) {
-    .Edit {
-        padding: 1.5em;
+    .banner {
+        background-image: url('../../images/banner-mid.jpg');
     }
 
-    .Edit h1 {
-        font-size: 1.8em;
-    }
-
-    .videoAdicionado img {
-        max-width: 30vw;
-    }
-
-}
-
-
-/* Tablets */
-@media (min-width: 768px) {
-    .Login {
-        background-color: rgba(0, 0, 0, 0.75);
-        padding: 5em 3em;
-        border-radius: .25em;
-    }
 }
 
 
 /* Small laptops / desktops */
-@media (min-width: 1024px) {}
+@media (min-width: 1024px) {
+    .banner {
+        background-image: url('../../images/banner-big.jpg');
+    }
+
+}
 
 /* Large desktops */
-@media (min-width: 1280px) {}
+@media (min-width: 1280px) {
+    .banner {
+        background-image: url('../../images/banner-large.jpg');
+    }
+
+}

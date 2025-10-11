@@ -1,31 +1,40 @@
-.AddVideos {
+.Edit {
     max-width: 480px;
     background-color: rgba(255, 255, 255, 0.137);
     margin: auto;
-    
+
 }
 
-.AddVideos>:first-child {
+.Edit>:first-child {
     margin: 0;
 }
 
-.AddVideos h1 {
+.Edit h1 {
     font-size: 1.2em;
     padding: 1em 0;
 }
 
-.AddVideos form {
+.Edit form {
     display: flex;
     flex-direction: column;
     gap: .5em;
 }
 
-.AddVideos input[type='submit'] {
+.Edit input[type='submit'],
+.Edit .DeleteButton {
     padding: .5em 1em;
-    margin: auto;
     border-radius: .25em;
 }
-
+.Edit .Buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+.DeleteButton{
+    background-color: red;
+}
+.DeleteButton:hover {
+    background-color: darkred;
+}
 .videoAdicionado {
     display: flex;
     flex-direction: column;
@@ -53,7 +62,7 @@
     margin: auto;
 }
 
-.selectGenre {
+.selectGender {
     background-color: #1E1E1E;
     color: white;
     padding: .5em;
@@ -64,11 +73,11 @@
 
 /* Tablets */
 @media (min-width: 768px) {
-    .AddVideos {
+    .Edit {
         padding: 1.5em;
     }
 
-    .AddVideos h1 {
+    .Edit h1 {
         font-size: 1.8em;
     }
 
@@ -81,7 +90,7 @@
 
 /* Tablets */
 @media (min-width: 768px) {
-    .Login{
+    .Login {
         background-color: rgba(0, 0, 0, 0.75);
         padding: 5em 3em;
         border-radius: .25em;
@@ -90,11 +99,7 @@
 
 
 /* Small laptops / desktops */
-@media (min-width: 1024px) {
-
-}
+@media (min-width: 1024px) {}
 
 /* Large desktops */
-@media (min-width: 1280px) {
-
-}
+@media (min-width: 1280px) {}

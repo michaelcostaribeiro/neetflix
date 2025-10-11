@@ -1,10 +1,24 @@
-import { createElement, useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './CarouselItem.module.css'
 
 const CarouselItem = ({ name, link, thumb, ref }) => {
 
     const [buttonClicked, setButtonClicked] = useState(false)
+    const [videoLink, setVideoLink] = useState('')
+    useEffect(()=>{
+
+    },[])
     const handleClick = (e) => {
+        console.log(link)
+        let videoLink = link.split('=')[1]
+        const splittedLink = link.split('/')
+        if (splittedLink.includes('youtu.be')){
+            videoLink = splittedLink[3].split('?')[0]   
+            setVideoLink(`https://www.youtube.com/embed/${videoLink}`)
+        }else{
+            setVideoLink(`https://www.youtube.com/embed/${videoLink}`)
+        }
+
         setButtonClicked(true)
     }
     return (
@@ -14,7 +28,7 @@ const CarouselItem = ({ name, link, thumb, ref }) => {
                 <iframe
                     width="90%"
                     height="90%"
-                    src="https://www.youtube.com/embed/I4WUSVrjNHE?si=c3T6m9mJa111FeVv" title="YouTube video player" frameBorder="0"
+                    src={videoLink} title="YouTube video player" frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen>

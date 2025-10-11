@@ -6,7 +6,7 @@ import styles from './AddVideos.module.css'
 
 const AddVideos = () => {
     const [videoName, setVideoName] = useState('')
-    const [videoGender, setVideoGender] = useState('')
+    const [videoGenre, setVideoGenre] = useState('')
     const [author, setAuthor] = useState('')
     const [linkVideo, setLinkVideo] = useState('')
     const [thumbURL, setThumbURL] = useState('')
@@ -17,7 +17,7 @@ const AddVideos = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(videoGender === ''){
+        if(videoGenre === ''){
             console.log('genero vazio')
             return
         }
@@ -28,7 +28,7 @@ const AddVideos = () => {
         setLinkVideo('')
         setThumbURL('')
             
-        addVideos(videoName, videoGender, author, linkVideo, thumbURL)
+        addVideos(videoName, videoGenre, author, linkVideo, thumbURL)
         setVideoAdicionado(thumbURL)
     }
     return (
@@ -37,7 +37,7 @@ const AddVideos = () => {
                 <h1>Insira as informações do vídeo:</h1>
                 <form onSubmit={handleSubmit}>
                     <TextInput id={videoName} value={videoName} setValue={setVideoName} labelText='Nome' type='text' />
-                    <select name='gender' id="gender" onChange={(e) => setVideoGender(e.target.value)}className={styles.selectGender}>
+                    <select name='genre' id="genre" onChange={(e) => setVideoGenre(e.target.value)}className={styles.selectGenre}>
                         <option value="">Gênero</option>
                         <option value="LoL">LoL</option>
                         <option value="Musica">Musica</option>

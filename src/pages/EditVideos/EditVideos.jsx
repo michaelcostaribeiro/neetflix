@@ -12,7 +12,7 @@ const EditVideos = () => {
             <h2>Editando</h2>
             {!choice && <>
                 <button className='btn' onClick={() => setChoice('add')}>Adicionar vídeo</button>
-                <Link className='btn' to={'/teste'} >Editar vídeo</Link>
+                <Link className='btn' to={'/edit'} >Editar vídeo</Link>
             </>
             }
             {choice === 'add' && 

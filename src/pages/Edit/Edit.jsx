@@ -1,10 +1,12 @@
-import { useEffect, useRef, useState } from 'react'
+import { use, useEffect, useRef, useState } from 'react'
 import useFetchDocument from '../../hooks/useFetchDocument'
 import styles from './Edit.module.css'
-import Loading from '../Loading/Loading'
-import CarouselItem from '../CarouselItem/CarouselItem'
+import Loading from '../../components/Loading/Loading'
+import { useNavigate } from 'react-router-dom'
+import EditCarouselItem from '../../components/EditCarouselItem/EditCarouselItem'
 
 const Edit = () => {
+    const navigate = useNavigate()
 
     const { getVideos } = useFetchDocument()
     const carouselList = useRef(null)
@@ -51,8 +53,14 @@ const Edit = () => {
                             <div className={styles.carouselWrapper}>
                                 <button className={styles.leftButton} onClick={(e) => handleScroll(e, 'left')}>{'<'}</button>
                                 <div className={styles.carouselList} >
-                                    {list[currentGender].videos.map((video) => {
-                                        return <CarouselItem key={video.videoName} name={video.videoName} link={video.linkVideo} thumb={video.thumbURL} ref={carouselList} />
+                                    {list[currentGender].videos.map((video, index) => {
+                                        return <EditCarouselItem
+                                            key={video.videoName}
+                                            name={video.videoName}
+                                            link={video.linkVideo}
+                                            thumb={video.thumbURL}
+                                            ref={carouselList} 
+                                            navigateLink={`/edit/${currentGender}/${index}`}/>
                                     })}
                                 </div>
                                 <button className={styles.rightButton} onClick={(e) => handleScroll(e, 'right')}>{'>'}</button>

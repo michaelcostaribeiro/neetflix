@@ -1,0 +1,81 @@
+.EditCarouselItem {
+    flex: 0 0 45%;
+    transition: .5s;
+    padding: 1.5%;
+    position: relative;
+}
+.EditCarouselItem::before{
+    content: '🖉';
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    inset: 0;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.75);
+    font-size: 3em;
+    pointer-events: none;
+    transition: .5s;
+}
+
+
+.EditCarouselItem:hover{
+    padding: 0;
+    z-index: 60;
+}
+.EditCarouselItem:hover::before{
+    font-size: 5em;
+}
+
+.EditCarouselItem img {
+    width: 100%;
+    height: 100%;
+}
+
+.EditCarouselItem button {
+    border-radius: .25em;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* pop up video */
+
+.videoScreen {
+    position: fixed;
+    z-index: 99;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+@media screen and (min-width: 500px) {
+    .EditCarouselItem {
+        flex: 0 0 30%;
+        padding: 1.2%;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .EditCarouselItem {
+        flex: 0 0 24%;
+        padding: .5%;
+    }
+}
+
+@media screen and (min-width: 1140px) {
+    .EditCarouselItem {
+        flex: 0 0 18%;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .EditCarouselItem {
+        flex: 0 0 15%;
+    }
+}

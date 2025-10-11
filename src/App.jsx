@@ -25,6 +25,8 @@ import { AuthProvider } from './context/authContext'
 import EditVideos from './pages/EditVideos/EditVideos';
 import Loading from './components/Loading/Loading';
 import RouteHandler from './components/RouteHandler/RouteHandler';
+import Edit from './pages/Edit/Edit';
+import EditPage from './pages/EditPage/EditPage';
 
 
 function App() {
@@ -37,6 +39,7 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [authLoaded, setAuthLoaded] = useState(false)
 
+  const [lang,setLang] = useState('PT')
 
 
   useEffect(() => {
@@ -86,13 +89,15 @@ function App() {
     <>
       {loading ? <Loading/> : (
       <AuthProvider value={user}>
+        
           <BrowserRouter>
             {user ? <Header admin={isAdmin} userLogout={setUser} /> : <Header />}
             <Routes>
-              {/* <Route path='/' element={user ? userPlan ? <Navigate to={'/browse'} /> : <ChoosePlan setPlan={setUserPlan} /> : <Home />} /> */}
               <Route path='/' element={<RouteHandler user={user} userPlan={userPlan} setUserPlan={setUserPlan} />} />
               <Route path='/login' element={user ? <Navigate to={'/'} /> : <Login />} />
               <Route path='/crud' element={isAdmin ? <EditVideos /> : <Navigate to={'/'} /> } />
+              <Route path='/edit' element={isAdmin ? <Edit /> : <Navigate to={'/'} /> } />
+              <Route path='/edit/:genre/:index' element={isAdmin ? <EditPage /> : <Navigate to={'/'} /> } />
               <Route path='/register' element={user ? <Navigate to={'/'} /> : <Register />} />
               <Route path='/browse' element={userPlan ? <Browse /> : <Navigate to={'/'} />} />
               <Route path='/createProfile' element={userPlan ? <CreateProfile /> : <Navigate to={'/'} /> } />
