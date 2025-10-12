@@ -92,6 +92,7 @@
 @media (min-width: 1280px) {
     .banner {
             background-image: url('../../images/banner-large.jpg');
+            background-size: cover;
         }
 
 }
