@@ -1,8 +1,16 @@
-import { useState } from 'react'
-import TextInput from '../../components/TextInput/TextInput'
+// css
 import styles from './CreateProfile.module.css'
+
+// hooks
+import { useState } from 'react'
 import useFetchDocument from '../../hooks/useFetchDocument'
+
+// components
+import TextInput from '../../components/TextInput/TextInput'
+
+// context
 import {useLanguageValue} from '../../context/languageContext'
+
 
 const CreateProfile = () => {
     const {t} = useLanguageValue()

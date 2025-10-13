@@ -1,9 +1,16 @@
 // css
-import { useState } from 'react'
 import styles from './EditVideos.module.css'
-import AddVideos from '../AddVideos/AddVideos'
+
+// hooks
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+
+// components
+import AddVideos from '../AddVideos/AddVideos'
+
+// context
 import {useLanguageValue} from '../../context/languageContext'
+
 
 const EditVideos = () => {
     const {t} = useLanguageValue()

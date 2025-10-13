@@ -1,10 +1,19 @@
+// css
+import styles from './Edit.module.css'
+
+// hooks
 import { use, useEffect, useRef, useState } from 'react'
 import useFetchDocument from '../../hooks/useFetchDocument'
-import styles from './Edit.module.css'
-import Loading from '../../components/Loading/Loading'
 import { useNavigate } from 'react-router-dom'
+
+// components
+import Loading from '../../components/Loading/Loading'
 import EditCarouselItem from '../../components/EditCarouselItem/EditCarouselItem'
+
+// context
 import {useLanguageValue} from '../../context/languageContext'
+
+
 
 
 const Edit = () => {

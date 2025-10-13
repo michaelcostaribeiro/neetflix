@@ -1,9 +1,17 @@
-import { useState, useEffect } from 'react'
-import TextInput from '../../components/TextInput/TextInput'
+// css
 import styles from './Register.module.css'
-import useAuthentication from '../../hooks/useAuthentication'
+
+// hooks
+import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import useAuthentication from '../../hooks/useAuthentication'
+
+// components 
+import TextInput from '../../components/TextInput/TextInput'
+
+// context
 import { useLanguageValue } from '../../context/languageContext'
+
 
 
 const Register = () => {

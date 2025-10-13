@@ -1,4 +1,5 @@
 import React from 'react'
+// context
 import { useLanguageValue } from '../../context/languageContext'
 
 const FreePlan = ({ styles }) => {

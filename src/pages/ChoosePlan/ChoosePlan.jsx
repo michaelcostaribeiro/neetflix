@@ -1,13 +1,22 @@
-import { useEffect, useState } from 'react'
+// css
 import styles from './ChoosePlan.module.css'
+
+// hooks
+import { useEffect, useState } from 'react'
 import useFetchDocument from '../../hooks/useFetchDocument'
-import Loading from '../../components/Loading/Loading'
-import { useAuthValue } from '../../context/authContext'
 import useAuthentication from '../../hooks/useAuthentication'
+
+// components
+import Loading from '../../components/Loading/Loading'
 import FreePlan from '../../components/Plans/FreePlan'
-import PremiumPlan from '../../components/Plans/PremiumPlan'
 import MediumPlan from '../../components/Plans/MediumPlan'
+import PremiumPlan from '../../components/Plans/PremiumPlan'
+
+// context
+import { useAuthValue } from '../../context/authContext'
 import { useLanguageValue } from '../../context/languageContext'
+
+
 
 const ChoosePlan = ({ setUserPlan }) => {
     const {t} = useLanguageValue()

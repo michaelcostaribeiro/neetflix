@@ -1,5 +1,10 @@
-import { useEffect, useState } from 'react'
+// css
 import styles from './CarouselItem.module.css'
+
+// hooks
+import { useEffect, useState } from 'react'
+
+
 
 const CarouselItem = ({ name, link, thumb, ref }) => {
 

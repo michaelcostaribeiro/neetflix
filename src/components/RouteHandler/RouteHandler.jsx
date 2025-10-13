@@ -1,6 +1,10 @@
+// hooks
 import { Navigate } from "react-router-dom"
+
+// components
 import ChoosePlan from "../../pages/ChoosePlan/ChoosePlan"
 import Home from "../../pages/Home/Home"
+
 
 const RouteHandler = ({ user, userPlan, setUserPlan }) => {
 

@@ -5,8 +5,14 @@ import styles from './Profiles.module.css'
 import useFetchDocument from '../../hooks/useFetchDocument'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+
+// components
 import Loading from '../Loading/Loading'
+
+// context
 import { useLanguageValue } from '../../context/languageContext'
+
+
 
 const Profiles = ({ setProfile }) => {
     const {t} = useLanguageValue()
@@ -30,7 +36,6 @@ const Profiles = ({ setProfile }) => {
     const setCurrentProfile = (name) => {
         setProfile(name)
     }
-    console.log(data.length)
 
 
 

@@ -1,9 +1,20 @@
+// css
+import styles from './BrowseVideos.module.css'
+
+// hooks
 import { useEffect, useRef, useState } from 'react'
 import useFetchDocument from '../../hooks/useFetchDocument'
-import styles from './BrowseVideos.module.css'
+
+// components
 import Loading from '../Loading/Loading'
 import CarouselItem from '../CarouselItem/CarouselItem'
+
+// context
 import { useLanguageValue } from '../../context/languageContext'
+
+
+
+
 
 const BrowseVideos = () => {
   const {lang} = useLanguageValue()

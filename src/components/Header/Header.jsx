@@ -7,15 +7,17 @@ import { auth } from '../../firebase/config'
 // hooks
 import { NavLink } from 'react-router-dom'
 import useAuthentication from '../../hooks/useAuthentication'
+import { useState } from 'react'
 
 // context
 import { useAuthValue } from '../../context/authContext'
+import { useLanguageValue } from '../../context/languageContext'
+
+//component
+import Loading from '../Loading/Loading'
 
 // images
 import logoImg from '../../assets/logo.png'
-import { useState } from 'react'
-import Loading from '../Loading/Loading'
-import { useLanguageValue } from '../../context/languageContext'
 
 
 

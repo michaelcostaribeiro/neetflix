@@ -1,9 +1,18 @@
+// css
+import styles from './EditPage.module.css'
+
+// hooks
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import useFetchDocument from '../../hooks/useFetchDocument'
-import styles from './EditPage.module.css'
+
+// components
 import TextInput from '../../components/TextInput/TextInput'
+
+// context
 import { useLanguageValue } from '../../context/languageContext'
+
+
 
 const EditPage = () => {
     const { t } = useLanguageValue()

@@ -1,9 +1,18 @@
-import { useState } from 'react'
+// css
 import styles from './Home.module.css'
-import Carousel from '../../components/Carousel/Carousel'
-import placeholder from '../../assets/logoIcon.png'
+
+// hooks
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+
+// components
+import Carousel from '../../components/Carousel/Carousel'
+
+// context
 import { useLanguageValue } from '../../context/languageContext'
+
+// assets
+import placeholder from '../../assets/logoIcon.png'
 
 
 const Home = () => {
