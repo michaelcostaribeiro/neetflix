@@ -6,11 +6,15 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 // hooks
 import { useNavigate } from "react-router-dom";
 import { useAuthValue } from "../context/authContext";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
+import { useLanguageValue } from "../context/languageContext";
 
 
 
 export function useAuthentication() {
+    const { t } = useLanguageValue()
+    const [error, setError] = useState('')
+
     const navigate = useNavigate('')
     const user = useAuthValue()
 
@@ -28,8 +32,21 @@ export function useAuthentication() {
                 'uid': auth.currentUser.uid
             })
         } catch (firebaseError) {
-            console.log('Erro: ', firebaseError)
-            return
+            console.log(firebaseError.message)
+            setError(firebaseError.message)
+            if (firebaseError.message.includes('invalid-email')) {
+                setError(t('invalidEmail'))
+            } else if (firebaseError.message.includes('email-already-in-use')) {
+                setError(t('emailInUse'))
+            }
+            else if (firebaseError.message.includes('weak-password')) {
+                setError(t('weakPassword'))
+            } else if (firebaseError.message.includes('network-request-failed')) {
+                setError(t('networkError'))
+            } else if (firebaseError.message.includes('too-many-requests')) {
+                setError(t('tooManyRequests'))
+            }
+
         }
     }
 
@@ -37,9 +54,15 @@ export function useAuthentication() {
         try {
             await signInWithEmailAndPassword(auth, email, password)
             navigate('/')
-
         } catch (firebaseError) {
-            console.log('erro: ', firebaseError)
+            console.log(firebaseError.message)
+            if (firebaseError.message.includes('too-many-requests')) {
+                setError(t('tooManyRequests'))
+            } else if (firebaseError.message.includes('network-request-failed')) {
+                setError(t('networkError'))
+            } else {
+                setError(t('invalidCredential'))
+            }
         }
     }
 
@@ -64,7 +87,7 @@ export function useAuthentication() {
             return (false)
         }
 
-    },[user])
+    }, [user])
 
 
 
@@ -72,7 +95,8 @@ export function useAuthentication() {
         register,
         login,
         validatePlan,
-        logout
+        logout,
+        error
     };
 }
 

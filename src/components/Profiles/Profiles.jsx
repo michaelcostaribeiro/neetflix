@@ -30,7 +30,7 @@ const Profiles = ({ setProfile }) => {
     const setCurrentProfile = (name) => {
         setProfile(name)
     }
-
+    console.log(data.length)
 
 
 
@@ -42,9 +42,11 @@ const Profiles = ({ setProfile }) => {
                 {data && data.map((item) => {
                     return <li key={item.name} onClick={() => setCurrentProfile(item.name)}><img src={item.image} alt="profileImage" />{item.name}</li>
                 })}
+                {data.length<6 &&
                 <li>
                     <Link className={styles.profileButton + ' btn'} to={'/createProfile'}>{t('profilesLink')}</Link>
                 </li>
+                }
             </ul>
 
         </div>

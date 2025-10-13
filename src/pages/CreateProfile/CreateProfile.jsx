@@ -6,6 +6,7 @@ import {useLanguageValue} from '../../context/languageContext'
 
 const CreateProfile = () => {
     const {t} = useLanguageValue()
+    const [error, setError] = useState('')
 
 
     const [name, setName] = useState('')
@@ -15,10 +16,16 @@ const CreateProfile = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        try{
+            new URL(imageURL)
+        }catch(error){
+            console.log(error.message)
+            setError(t('invalidURL'))
+            return
+        }
         addProfile(name, imageURL)
     }
     return (
-        // { id, value, setValue, labelText ='Email', type='email' }
         <div className='flex1'>
             <div className={styles.CreateProfile + ' container current-query'}>
                 <form onSubmit={handleSubmit}>
@@ -29,6 +36,7 @@ const CreateProfile = () => {
                     <TextInput id={'url'} value={imageURL} setValue={setImageURL} labelText={t('createProfileInput2')} type='text' />
                     <input type="submit" value={t('createProfileSubmit')} className={'btn'} />
                 </form>
+                {error && <div className='error'>{error}</div>}
 
             </div>
             <div className='grayBackground'></div>

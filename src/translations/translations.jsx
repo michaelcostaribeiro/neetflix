@@ -105,7 +105,7 @@ export const translations = {
         createProfileH1: 'Crie seu perfil',
         createProfileP1: 'Qual o name de quem vai usar o perfil?',
         createProfileInput1: 'Nome',
-        createProfileP2: 'Escolha uma imagem de perfil [32px,32px]',
+        createProfileP2: 'Escolha uma imagem de perfil',
         createProfileInput2: 'URL da Imagem',
         createProfileSubmit: 'Criar',
 
@@ -136,6 +136,18 @@ export const translations = {
         // -----------------------
         // Editing
         editingTitle: 'Editando',
+
+        // -----------------------
+        // Error
+        invalidEmail: 'Email inválido!',
+        invalidCredential: 'Credenciais invalidas!',
+        tooManyRequests: 'Aguarde antes de tentar novamente',
+        networkError: 'Erro de conexão. Cheque sua internet.',
+        emailInUse: 'Email ja sendo usado!',
+        weakPassword: 'A senha precisa ter pelo menos 6 digitos!',
+        invalidURL:'URL inválido!',
+        genreError:'Selecione um gênero',
+        invalidYoutubeURL:'URL inválida do Youtube',
 
 
 
@@ -247,7 +259,7 @@ export const translations = {
         createProfileH1: 'Create your profile',
         createProfileP1: 'What is the name of the person who will use the profile?',
         createProfileInput1: 'Name',
-        createProfileP2: 'Choose a profile image [32px,32px]',
+        createProfileP2: 'Choose a profile image',
         createProfileInput2: 'Image URL',
         createProfileSubmit: 'Create',
 
@@ -279,9 +291,17 @@ export const translations = {
         // Editing
         editingTitle: 'Editing',
 
-
-
-
+        // -----------------------
+        // Error
+        invalidEmail: 'Invalid Email!',
+        invalidCredential: 'Invalid Credential!',
+        tooManyRequests: 'Wait before trying again',
+        networkError: 'Network error. Check your internet connection.',
+        emailInUse: 'Email already being used!',
+        weakPassword:'Password should be at least 6 characters!',
+        invalidURL: 'Invalid URL!',
+        genreError: 'Select a genre',
+        invalidYoutubeURL: 'Invalid Youtube URL',
 
     }
 }

@@ -7,7 +7,8 @@ import { useLanguageValue } from '../../context/languageContext'
 
 
 const Register = () => {
-    const {t} = useLanguageValue()
+    const { t } = useLanguageValue()
+    const [error, setError] = useState('')
 
     const location = useLocation()
     const initialemail = location.state?.initialemail || ''
@@ -17,9 +18,14 @@ const Register = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const {register} = useAuthentication()
-    useEffect(()=>{
-        if (initialemail){
+    const { register, error: firebaseError } = useAuthentication()
+
+    useEffect(() => {
+        setError(firebaseError)
+    }, [firebaseError])
+
+    useEffect(() => {
+        if (initialemail) {
             setEmail(initialemail)
             console.log(email)
         }
@@ -27,7 +33,7 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        register(displayName,email,password)
+        register(displayName, email, password)
 
     }
 
@@ -38,13 +44,14 @@ const Register = () => {
                     <p>{t('registerP')}</p>
                     <h2>{t('registerH2')}</h2>
                     <form onSubmit={handleSubmit}>
-                        <TextInput id={'displayName'} value={displayName} setValue={setDisplayName} labelText={t('registerNameLabel')} type='text'/>
+                        <TextInput id={'displayName'} value={displayName} setValue={setDisplayName} labelText={t('registerNameLabel')} type='text' />
 
-                        <TextInput id={'email'} value={email} labelText={t('registerEmailLabel')} setValue={setEmail}/>
+                        <TextInput id={'email'} value={email} labelText={t('registerEmailLabel')} setValue={setEmail} />
 
-                        <TextInput id={'password'} value={password} setValue={setPassword} labelText={t('registerPasswordLabel')} type='password'/>
+                        <TextInput id={'password'} value={password} setValue={setPassword} labelText={t('registerPasswordLabel')} type='password' />
 
                         <input type="submit" value={t('registerSubmit')} className='btn' />
+                        {error && <div className='error'>{error}</div>}
                     </form>
                 </div>
             </div>

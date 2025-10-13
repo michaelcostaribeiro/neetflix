@@ -22,6 +22,14 @@
     font-weight: bold;
     text-decoration: none;
 }
+.adminCredentials{
+    background-color: rgb(43, 43, 43);
+    padding: .5em;
+    border-radius: .25em;
+}
+.adminCredentials p {
+    padding: .25em 0;
+}
 
 /* Tablets */
 @media (min-width: 768px) {

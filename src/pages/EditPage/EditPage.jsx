@@ -3,8 +3,10 @@ import { useNavigate, useParams } from 'react-router-dom'
 import useFetchDocument from '../../hooks/useFetchDocument'
 import styles from './EditPage.module.css'
 import TextInput from '../../components/TextInput/TextInput'
+import { useLanguageValue } from '../../context/languageContext'
 
 const EditPage = () => {
+    const { t } = useLanguageValue()
 
     const { genre, index } = useParams()
     const { getVideo, updateVideo, deleteVideo } = useFetchDocument()
@@ -36,24 +38,35 @@ const EditPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(`status do vídeo editado: ${videoName}  ${linkVideo} ${thumbURL} `)
-        const info = {
-            author,
-            linkVideo,
-            thumbURL,
-            videoName
+
+        if (linkVideo.includes('youtube.com') || linkVideo.includes('youtu.be')) {
+            try{
+                new URL(thumbURL)
+                new URL(linkVideo)
+            }catch(error){
+                setError(t('invalidURL'))
+                return
+            }
+
+            const info = {
+                author,
+                linkVideo,
+                thumbURL,
+                videoName
+            }
+            updateVideo(genre, index, info)
+            navigate('/edit')
+        } else {
+            setError(t('invalidYoutubeURL'))
+            return
         }
-        updateVideo(genre, index, info)
-        navigate('/edit')
 
     }
 
     const handleDelete = (e) => {
         e.preventDefault()
+        navigate('/')
         deleteVideo(genre, index)
-
-
-        navigate('/edit')
     }
     return (
         <div className='flex1'>
@@ -71,7 +84,7 @@ const EditPage = () => {
                     </div>
                 </form>
 
-                {error && <p>{error}</p>}
+                {error && <div className='error'>{error}</div>}
             </div>
         </div>
     )

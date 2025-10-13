@@ -1,17 +1,28 @@
-import { useState } from 'react'
-import TextInput from '../../components/TextInput/TextInput'
+// css
 import styles from './Login.module.css'
+
+// hooks
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import useAuthentication from '../../hooks/useAuthentication'
+
+// components
+import TextInput from '../../components/TextInput/TextInput'
+
+// context
 import { useLanguageValue } from '../../context/languageContext'
 
 const Login = () => {
     const {t} = useLanguageValue()
+    const {login, error: firebaseError} = useAuthentication()
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
 
-    const {login} = useAuthentication()
+    useEffect(()=> {
+        setError(firebaseError)
+    },[firebaseError])
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -38,6 +49,13 @@ const Login = () => {
                         <input type="submit" value={t('loginSubmit')} className='btn' />
                     </form>
                     <p> {t('loginP')} <Link to={'/register'}>{t('loginLink')}</Link></p>
+                    {error && <div className='error'>{error}</div>}
+                    <div className={styles.adminCredentials}>
+                        <h3>admin:</h3>
+                        <hr />
+                        <p>admin@mail.com</p>
+                        <p>123456789</p>
+                    </div>
                 </div>
             </div>
             <div className='backgroundImage'></div>

@@ -20,12 +20,14 @@ body {
     background-color: black;
     z-index: -3;
 }
+
 .grayBackground {
     background-color: #1E1E1E;
     position: fixed;
     inset: 0;
     z-index: -2;
 }
+
 .backgroundImage {
     position: absolute;
     inset: 0;
@@ -105,6 +107,15 @@ body {
 
 .current-query {
     padding: 1.5em;
+}
+
+.error {
+    display: block;
+    background-color: red;
+    padding: .5em;
+    border-radius: .25em;
+    width: 100%;
+    margin: .5em 0;
 }
 
 /* Tablets */
